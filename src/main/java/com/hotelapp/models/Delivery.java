@@ -27,16 +27,21 @@ public class Delivery {
 	private String partnerName;
 	private double charges;
 	
-	
 	//the mappedBy value should be exact same as the value set for delivery in hotel model
 	@ManyToMany(mappedBy = "delivery")
 	private Set<Hotel> hotelList = new HashSet<>();
+	
+	public Delivery() {}
+	
 	
 	public Delivery(String partnerName, double charges) {
 		super();
 		this.partnerName = partnerName;
 		this.charges = charges;
 	}
+
+
+
 	@Override
 	public String toString() {
 		return "Delivery [partnerName=" + partnerName + ", charges=" + charges + "]";

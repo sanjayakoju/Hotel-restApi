@@ -36,31 +36,26 @@ public class HotelServiceImpl implements HotelService {
 
 	@Override
 	public List<Hotel> getHotelByCity(String city) {
-		// TODO Auto-generated method stub
-		return null;
+		return hotelRepository.findByAddressCity(city);
 	}
 
 	@Override
 	public List<Hotel> getHotelByMenu(String menuName) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public List<Hotel> getHotelByDelivery(String partnerName) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public List<Hotel> getHotelByLocation(String location) {
-		// TODO Auto-generated method stub
-		return null;
+		return hotelRepository.findByAddressStreetName(location);
 	}
 
 	@Override
 	public List<Hotel> getHotelByLocationAndMenu(String location, String menuName) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

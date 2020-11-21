@@ -36,11 +36,15 @@ public class Hotel {
 	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
 	@JoinColumn(name = "hotel_id")
 	private Set<Menu> menuList;
-	@ManyToMany(cascade = CascadeType.PERSIST,fetch = FetchType.EAGER)
+	@ManyToMany(cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
 	@JoinTable(name = "hotel_delivery",
 			joinColumns = @JoinColumn(name = "hotel_id"),
 			inverseJoinColumns = @JoinColumn(name = "delivery_id"))
 	private Set<Delivery> delivery;
+	
+	public Hotel() {}
+	
+	
 	public Hotel(String hotelName, Address address, Set<Menu> menuList, Set<Delivery> delivery) {
 		super();
 		this.hotelName = hotelName;
@@ -53,6 +57,58 @@ public class Hotel {
 		return "Hotel [hotelName=" + hotelName + ", address=" + address + ", menuList=" + menuList + ", delivery="
 				+ delivery + "]";
 	}
+
+
+	public Integer getHotelId() {
+		return hotelId;
+	}
+
+
+	public void setHotelId(Integer hotelId) {
+		this.hotelId = hotelId;
+	}
+
+
+	public String getHotelName() {
+		return hotelName;
+	}
+
+
+	public void setHotelName(String hotelName) {
+		this.hotelName = hotelName;
+	}
+
+
+	public Address getAddress() {
+		return address;
+	}
+
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+
+	public Set<Menu> getMenuList() {
+		return menuList;
+	}
+
+
+	public void setMenuList(Set<Menu> menuList) {
+		this.menuList = menuList;
+	}
+
+
+	public Set<Delivery> getDelivery() {
+		return delivery;
+	}
+
+
+	public void setDelivery(Set<Delivery> delivery) {
+		this.delivery = delivery;
+	}
+	
+	
 	
 	
 	
