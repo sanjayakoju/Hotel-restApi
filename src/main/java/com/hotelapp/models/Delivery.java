@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -28,6 +30,8 @@ public class Delivery {
 	private double charges;
 	
 	//the mappedBy value should be exact same as the value set for delivery in hotel model
+	// JsonIgnore annotation solve the problem of stackover flow and recursive
+	@JsonIgnore
 	@ManyToMany(mappedBy = "delivery")
 	private Set<Hotel> hotelList = new HashSet<>();
 	
@@ -46,6 +50,47 @@ public class Delivery {
 	public String toString() {
 		return "Delivery [partnerName=" + partnerName + ", charges=" + charges + "]";
 	}
+
+
+	public Integer getDeliveryId() {
+		return deliveryId;
+	}
+
+
+	public void setDeliveryId(Integer deliveryId) {
+		this.deliveryId = deliveryId;
+	}
+
+
+	public String getPartnerName() {
+		return partnerName;
+	}
+
+
+	public void setPartnerName(String partnerName) {
+		this.partnerName = partnerName;
+	}
+
+
+	public double getCharges() {
+		return charges;
+	}
+
+
+	public void setCharges(double charges) {
+		this.charges = charges;
+	}
+
+
+	public Set<Hotel> getHotelList() {
+		return hotelList;
+	}
+
+
+	public void setHotelList(Set<Hotel> hotelList) {
+		this.hotelList = hotelList;
+	}
+	
 	
 	
 

@@ -89,15 +89,15 @@ public class HotelRestApiApplication implements CommandLineRunner {
 //					.stream()
 //					.forEach((h)->System.out.println(h.getHotelName()+" "+h.getAddress().getStreetName()));
 //		System.out.println();
-//		hotelService.getHotelByDelivery("swiggy")
-//					.stream()
-//					.forEach((h)->System.out.println(h.getHotelName()+" "+h.getAddress().getStreetName()));
+		hotelService.getHotelByDelivery("ubber")
+					.stream()
+					.forEach((h)->System.out.println(h));
 		
 //		hotelService.getHotelByLocationAndMenu("JP nagar", "Cake")
 //					.forEach((h)->System.out.println(h.getHotelName()+" "+h.getAddress().getCity()+""+h.getMenuList()));
 		
-		menuService.getMenuByHotel("A2B")
-					.forEach((m)->System.out.println(m.getMenuName()+" "+m.getPrice()));
+//		menuService.getMenuByHotel("A2B")
+//					.forEach((m)->System.out.println(m.getMenuName()+" "+m.getPrice()));
 
 	}
 

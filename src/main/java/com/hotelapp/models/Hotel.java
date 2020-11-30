@@ -15,6 +15,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -36,7 +38,7 @@ public class Hotel {
 	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
 	@JoinColumn(name = "hotel_id")
 	private Set<Menu> menuList;
-	@ManyToMany(cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
+	@ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
 	@JoinTable(name = "hotel_delivery",
 			joinColumns = @JoinColumn(name = "hotel_id"),
 			inverseJoinColumns = @JoinColumn(name = "delivery_id"))
