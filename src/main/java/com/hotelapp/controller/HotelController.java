@@ -14,12 +14,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.hotelapp.exception.GlobalExceptionHandler;
+import com.hotelapp.exception.HotelNotFoundException;
 import com.hotelapp.models.Hotel;
 import com.hotelapp.service.HotelService;
 
 @RestController
 @RequestMapping("/hotel-restapi")
-public class HotelController {
+public class HotelController  {
 	
 	@Autowired
 	HotelService hotelService;
@@ -59,9 +61,13 @@ public class HotelController {
 	}
 	
 	@GetMapping("/hotel/getByCityName/{cityName}")
-	public ResponseEntity<List<Hotel>> getHotelByCity(@PathVariable("cityName") String city)
+	public ResponseEntity<List<Hotel>> getHotelByCity(@PathVariable("cityName") String city) throws HotelNotFoundException
 	{
 		List<Hotel> hotelList = hotelService.getHotelByCity(city);
+		if(hotelList.isEmpty())
+		{
+			throw new HotelNotFoundException("Hotel with city not found !!!");
+		}
 		return ResponseEntity.ok().body(hotelList);
 	}
 	

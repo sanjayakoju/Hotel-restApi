@@ -1,24 +1,18 @@
 package com.hotelapp;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.hotelapp.models.Address;
-import com.hotelapp.models.Delivery;
-import com.hotelapp.models.Hotel;
-import com.hotelapp.models.Menu;
+
 import com.hotelapp.service.DeliveryService;
 import com.hotelapp.service.HotelService;
 import com.hotelapp.service.MenuService;
 
 @SpringBootApplication
-public class HotelRestApiApplication implements CommandLineRunner {
+public class HotelRestApiApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(HotelRestApiApplication.class, args);
@@ -33,8 +27,8 @@ public class HotelRestApiApplication implements CommandLineRunner {
 	@Autowired
 	MenuService menuService;
 
-	@Override
-	public void run(String... args) throws Exception {
+//	@Override
+//	public void run(String... args) throws Exception {
 
 //		First commit	
 
@@ -89,9 +83,9 @@ public class HotelRestApiApplication implements CommandLineRunner {
 //					.stream()
 //					.forEach((h)->System.out.println(h.getHotelName()+" "+h.getAddress().getStreetName()));
 //		System.out.println();
-		hotelService.getHotelByDelivery("ubber")
-					.stream()
-					.forEach((h)->System.out.println(h));
+//		hotelService.getHotelByDelivery("ubber")
+//					.stream()
+//					.forEach((h)->System.out.println(h));
 		
 //		hotelService.getHotelByLocationAndMenu("JP nagar", "Cake")
 //					.forEach((h)->System.out.println(h.getHotelName()+" "+h.getAddress().getCity()+""+h.getMenuList()));
@@ -99,6 +93,6 @@ public class HotelRestApiApplication implements CommandLineRunner {
 //		menuService.getMenuByHotel("A2B")
 //					.forEach((m)->System.out.println(m.getMenuName()+" "+m.getPrice()));
 
-	}
+//	}
 
 }
