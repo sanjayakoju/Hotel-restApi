@@ -19,7 +19,6 @@ import lombok.Setter;
 @Entity
 @Setter
 @Getter
-@NoArgsConstructor
 public class Delivery {
 	
 	@Id

@@ -17,7 +17,6 @@ import lombok.Setter;
 @Entity
 @Setter
 @Getter
-@NoArgsConstructor
 public class Menu {
 	
 	@Id

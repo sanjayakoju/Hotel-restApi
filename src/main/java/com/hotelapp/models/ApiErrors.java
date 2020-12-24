@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class ApiErrors {
 
 	String message;

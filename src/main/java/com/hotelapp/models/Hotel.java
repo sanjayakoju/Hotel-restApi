@@ -22,9 +22,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Setter
-@Getter
-@NoArgsConstructor
 public class Hotel {
 	
 	@Id
@@ -110,9 +107,6 @@ public class Hotel {
 		this.delivery = delivery;
 	}
 	
-	
-	
-	
-	
+
 
 }
